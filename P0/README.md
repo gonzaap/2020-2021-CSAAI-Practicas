@@ -7,3 +7,4 @@ Probando el VSCode
 *************************
 
 ...TErcer cambio...
+![](Ejercicio2-img1.gif)
