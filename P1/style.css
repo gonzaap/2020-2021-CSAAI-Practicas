@@ -1,4 +1,57 @@
+@font-face
+{
+    font-family: 'Charming';
+    src: url(Achaflft.ttf)
+}
+@font-face
+{
+    font-family: 'German';
+    src: url(Fluted\ Germanica.ttf)
+}
+@font-face
+{
+    font-family: 'Elegant';
+    src: url(CalligraphyFLF.ttf)
+}
+
 body {
 
     background-image: url(Imagen_fondo.jpg)
+}
+
+h1{
+    font-family: 'Charming';
+    font-size: 100px;
+    border-bottom: #ebe9e5 2px outset;
+    padding: 10px;
+}
+
+.tabla{
+    
+    width: 500px;
+}
+
+h2{
+    font-family: 'German';
+    font-size: 27px;
+}
+
+p1{
+    font-family: 'Elegant';
+    font-size: 20px;
+}
+
+li{
+    font-family: 'Elegant';
+    font-size: 20px;
+    
+}
+
+a{
+    font-family: 'Elegant';
+    font-size: 20px;
+}
+
+fieldset{
+    border-style: #ebe9e5 10px outset;
 }
