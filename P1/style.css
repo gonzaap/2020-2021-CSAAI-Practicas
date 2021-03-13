@@ -21,7 +21,7 @@ body {
 
 h1{
     font-family: 'Charming';
-    font-size: 150px;
+    font-size: 135px;
     border-bottom: #ebe9e5 2px outset;
     padding: 10px;
 }
@@ -33,23 +33,26 @@ h1{
 
 h2{
     font-family: 'German';
-    font-size: 70px;
+    font-size: 60px;
+    color: aliceblue;
 }
 
 p1{
     font-family: 'Elegant';
-    font-size: 35px;
+    font-size: 25px;
+    color: aliceblue;
 }
 
 li{
     font-family: 'Elegant';
-    font-size: 35px;
-    
+    font-size: 25px;
+    color: aliceblue;
 }
 
 a{
     font-family: 'Elegant';
-    font-size: 35px;
+    font-size: 25px;
+    color: brown;
 }
 
 fieldset{
