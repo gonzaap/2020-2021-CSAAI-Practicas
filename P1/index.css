@@ -22,6 +22,7 @@ body {
 h1{
     font-family: 'Charming';
     font-size: 135px;
+    color: aliceblue;
     border-bottom: #ebe9e5 2px outset;
     padding: 10px;
 }
