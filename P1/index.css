@@ -16,7 +16,7 @@
 
 body {
 
-    background-image: url(Imagen_fondo.jpg)
+    background-image: url(Imagen_fondo.jpg) 
 }
 
 h1{
@@ -25,8 +25,12 @@ h1{
     color: aliceblue;
     border-bottom: #ebe9e5 2px outset;
     padding: 10px;
+    
 }
+.imagen1{
 
+    margin-right: 7%;
+}
 .tabla{
     
     width: 500px;
