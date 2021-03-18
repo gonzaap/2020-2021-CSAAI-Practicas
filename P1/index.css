@@ -17,7 +17,7 @@
 /*Establecemos imagen de fondo*/
 body {
 
-    background-image: url(Imagen_fondo.jpg) 
+    background-image: url('Imagen_fondo.jpg') 
 }
 
 h1{
@@ -57,7 +57,7 @@ li{
     font-size: 25px;
     color: aliceblue;
     /*Cambiando imagen de los puntos de la lista*/
-    list-style-image: url(Lista.png);
+    list-style-image: url('Lista.png');
 }
 
 a{
