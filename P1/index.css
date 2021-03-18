@@ -1,3 +1,4 @@
+/*Creando clases para cambiar fuente de la letra*/
 @font-face
 {
     font-family: 'Charming';
@@ -13,13 +14,14 @@
     font-family: 'Elegant';
     src: url(CalligraphyFLF.ttf)
 }
-
+/*Establecemos imagen de fondo*/
 body {
 
     background-image: url(Imagen_fondo.jpg) 
 }
 
 h1{
+    /*Font-family para cambiar fuente de letra*/
     font-family: 'Charming';
     font-size: 135px;
     color: aliceblue;
@@ -27,10 +29,12 @@ h1{
     padding: 10px;
     
 }
+/*Estableciendo márgenes*/
 .imagen1{
 
     margin-right: 7%;
 }
+/*Estableciendo tamaño deseado de la tabla*/
 .tabla{
     
     width: 500px;
@@ -52,6 +56,8 @@ li{
     font-family: 'Elegant';
     font-size: 25px;
     color: aliceblue;
+    /*Cambiando imagen de los puntos de la lista*/
+    list-style-image: url(Lista.png);
 }
 
 a{
