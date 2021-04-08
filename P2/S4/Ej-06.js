@@ -5,6 +5,6 @@ const test = document.getElementById('test')
 
 //-- Configurar el manejador para el evento de
 //-- pulsación de botón
-test.onclick = function () {
+test.onclick = () => {
   console.log("Click sobre el párrafo...")
 }
