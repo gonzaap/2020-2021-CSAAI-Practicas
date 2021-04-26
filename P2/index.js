@@ -36,7 +36,6 @@ let estado = ESTADO.INIT
     }else if (estado == ESTADO.OP2){
       display.innerHTML += digito;
     }
-    sonido.play();
   }
 for (i=0; i<digitos.length; i++){
   digitos[i].onclick = (ev) =>{
