@@ -2,6 +2,7 @@ display = document.getElementById("display")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 del = document.getElementById("delete")
+answer = document.getElementById("answer")
 let digitos = document.getElementsByClassName("digito");
 let operacion = document.getElementsByClassName("operación")
 const ESTADO = {
@@ -22,20 +23,21 @@ let estado = ESTADO.INIT
     //-- Si es el primer dígito, no lo añadimos,
     //-- sino que lo mostramos directamente en el display
     if (estado == ESTADO.INIT) {
-
-        display.innerHTML = digito;
-
-        //-- Pasar al siguiente estado
-        estado = ESTADO.OP1;
-      }else if (estado == ESTADO.OP1){
-        display.innerHTML += digito;
-    } else if (estado == ESTADO.OPERATION){
+      display.innerHTML = digito;
+      estado = ESTADO.OP1;
+    }else if (estado == ESTADO.OP1){
       display.innerHTML += digito;
+    } else if (estado == ESTADO.OPERATION) {
+      display.innerHTML += digito;
+      estado = ESTADO.OP2_INIT;
+    }else if (estado == ESTADO.OP2_INIT) {
+      display.innerHTML +=  digito;
       estado = ESTADO.OP2;
-  }   else if (estado == ESTADO.OP2){
-    display.innerHTML += digito;
+    }else if (estado == ESTADO.OP2){
+      display.innerHTML += digito;
+    }
+    sonido.play();
   }
-}
 for (i=0; i<digitos.length; i++){
   digitos[i].onclick = (ev) =>{
     calculadora(ev.target.value);
@@ -60,10 +62,9 @@ for (i=0; i<operacion.length; i++){
 
 //-- Evaluar la expresion
 igual.onclick = () => {
-  if(estado == ESTADO.OP1 ||  estado == ESTADO.OP2){
      display.innerHTML = eval(display.innerHTML);
+     answer.value = display.innerHTML;
      estado = ESTADO.OP1;
-   }
  }
 
 //-- Poner a cero la expresion
@@ -73,9 +74,22 @@ display.innerHTML = "0";
 estado = ESTADO.INIT;
 }
 
-//-- Poner a cero la expresion
-clear.onclick = () => {
-  display.innerHTML = "0";
-    console.log("clear");
-    estado = ESTADO.INIT;
+//-- Borrar operando
+del.onclick = () => {
+  if (display.innerHTML == "0"){
+    display.innerHTML = "";
+  }else{
+    display.innerHTML = display.innerHTML.slice(0,-1);
+  }
 }
+
+ // Raiz cuadrada
+ sqrt.onclick = () => {
+  display.innerHTML = Math.sqrt(display.innerHTML);
+}
+
+ // Answer
+ answer.onclick = () => {
+    display.innerHTML += answer.value;
+    estado = ESTADO.OP2;
+ }
