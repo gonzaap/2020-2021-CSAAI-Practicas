@@ -1,0 +1,61 @@
+@font-face
+{
+    font-family: 'Charming';
+    src: url(Achaflft.ttf)
+}
+@font-face
+{
+    font-family: 'German';
+    src: url(Fluted\ Germanica.ttf)
+}
+@font-face
+{
+    font-family: 'Elegant';
+    src: url(CalligraphyFLF.ttf)
+}
+body {
+
+    background-image: url('wallpaper.jpg') 
+}
+
+
+h1{
+    text-align: center;
+    font-family: 'Charming';
+    font-size: 100px;
+    color: #ACAAAA
+}
+
+.carcasa{
+
+    margin: 0 auto;
+    padding:20px;
+    background-color: #0F0E0E;
+    width:415px;
+    height:500px;
+    border-radius: 25px;
+}
+
+button{
+    
+    width:70px;
+    height:70px;
+    font-size:25px;
+}
+.botones{
+    column-count: 6;
+    margin-top: 20px;
+    font-family: 'Charming';
+}
+
+#pantalla{
+     
+    font-size:40px;
+    margin-bottom: 50px;
+    width: 415px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #D40000 ;
+    border-radius: 25px;
+    
+}
