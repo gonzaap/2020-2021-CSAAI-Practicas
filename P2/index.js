@@ -29,9 +29,6 @@ let estado = ESTADO.INIT
       display.innerHTML += digito;
     } else if (estado == ESTADO.OPERATION) {
       display.innerHTML += digito;
-      estado = ESTADO.OP2_INIT;
-    }else if (estado == ESTADO.OP2_INIT) {
-      display.innerHTML +=  digito;
       estado = ESTADO.OP2;
     }else if (estado == ESTADO.OP2){
       display.innerHTML += digito;
