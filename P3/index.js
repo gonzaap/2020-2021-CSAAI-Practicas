@@ -35,6 +35,7 @@ function drawRaqueta() {
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.closePath();  
+    
 }
   
  function draw(){
@@ -44,8 +45,15 @@ function drawRaqueta() {
      pelotax += dx;
      pelotay += dy;
 
+     if(pelotax + radius > canvas.width || pelotax - radius < 0){
+         dx *= -1;
+     }
+     if(pelotay + radius > canvas.height || pelotay - radius < 0){
+        dy *= -1;
+    }
      requestAnimationFrame(draw);
  }
+ 
  
 
  draw();
