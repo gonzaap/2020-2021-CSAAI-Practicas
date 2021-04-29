@@ -1,0 +1,26 @@
+INDEX.JS
+
+var raqueta;
+var bloques = [];
+const canvas = document.getElementById("canvas");
+context=canvas.getContext("2d");
+
+//-- Definir el tamaño del convas
+canvas.width = 900;
+canvas.height = 600;
+
+//Creando canvas
+
+function setup(){
+    raqueta = new raqueta();
+
+}
+//Dibujando elementos
+function draw(){
+    player.move();
+    player.show();
+    
+}
+
+
+*************

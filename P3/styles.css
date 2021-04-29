@@ -1,7 +1,27 @@
 canvas {
-    background-color: lightblue;
+    background-color: #C70039 ;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: white;
     border-radius: 5px;
+  }
+
+  body{
+    background:  #900C3F  ;
+  }
+
+  .high-score{
+    position : absolute;
+    top: 1.5 rem;
+    width: 80%;
+    left: 10%;
+    text-align: center;
+  }
+
+  .reset{
+    cursor: pointer;
+    position: absolute;
+    top:95%;
+    left:10%;
+    text-align: center;
   }
