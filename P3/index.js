@@ -58,7 +58,11 @@ let score = 0;
     if(pelotax >= raquetax && 
         pelotax <= raquetax + anchoRaqueta &&
         pelotay + radius >= canvas.height - altoRaqueta - 10){
-            dy = -dy;
+            let puntoColision = pelotax - (raquetax + anchoRaqueta/2);
+            puntoColision = puntoColision / (anchoRaqueta/2);
+            let angle = puntoColision * Math.PI/3;
+            dx = speed * Math.sin(angle);
+            dy = -speed * Math.cos(angle);
             console.log("bota rebota");
         }
  
@@ -207,6 +211,9 @@ function drawBloques(){
             }
         }
       }
+  }
+  function GameOver(){
+
   }
  
  draw();
