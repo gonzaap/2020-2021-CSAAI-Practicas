@@ -38,6 +38,8 @@ function drawRaqueta() {
     ctx.closePath();
     
 }
+let vidas = 3;
+let score = 0;
   
  function draw(){
      ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -47,15 +49,10 @@ function drawRaqueta() {
      drawBloques();
      collisionDetection();
      drawScore();
+     drawLives();
+     wallCollision();
      pelotax += dx;
      pelotay += dy;
-
-     if(pelotax + radius > canvas.width || pelotax - radius < 0){
-         dx = -dx;
-     }
-     if(pelotay + radius > canvas.height || pelotay - radius < 0){
-        dy = -dy;
-    }
 
     //Rebotes
     if(pelotax >= raquetax && 
@@ -67,13 +64,42 @@ function drawRaqueta() {
  
      requestAnimationFrame(draw);
  }
- let score = 0;
+ function wallCollision(){
+    if(pelotax + radius > canvas.width || pelotax - radius < 0){
+        dx = -dx;
+    }
+    if(pelotay + radius > canvas.height || pelotay - radius < 0){
+       dy = -dy;
+    }
+    if(pelotay + radius > canvas.height){
+        vidas--;
+        reset();
+    }
+ }
+
+ function reset(){
+    pelotax = canvas.width/2;
+    pelotay= canvas.height -300;
+    dx= speed;
+    dy= -speed;
+    anchoRaqueta = 100;
+    altoRaqueta = 20; 
+    raquetax = (canvas.width-anchoRaqueta)/2;
+ }
   
  function drawScore(){
      ctx.font = '16px Arial';
      ctx.fillStyle = '#FFF9FB';
-     ctx.fillText('Score: ' + score, 8,750);
+     ctx.fillText('Puntos: ' + score, 50,450);
  }
+
+ function drawLives(){
+    ctx.font = '16px Arial';
+    ctx.fillStyle = '#FFF9FB';
+    ctx.fillText('Vidas: ' + vidas, 800,450);
+ }
+
+
  //Detectando teclas
  let rightPressed = false;
  let leftPressed = false;
