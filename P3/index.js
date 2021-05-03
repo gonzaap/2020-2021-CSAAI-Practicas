@@ -148,7 +148,7 @@ function drawBloques(){
       if (ladrillos[i][j].visible) {
         ctx.beginPath();
         ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = '#E10033 ';
         ctx.fill();
         ctx.closePath();
       }
