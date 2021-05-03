@@ -14,7 +14,7 @@ let speed = 5;
     var pelotax= canvas.width/2;
     var pelotay= canvas.height -300;
     var dx= speed;
-    var dy= -speed +1;
+    var dy= -speed;
     var radius= 7;
     
 function drawPelota() {
@@ -44,6 +44,8 @@ function drawRaqueta() {
      drawRaqueta();
      drawPelota();
      moveRaqueta();
+     drawBloques();
+     collisionDetection();
      pelotax += dx;
      pelotay += dy;
 
@@ -103,24 +105,73 @@ function moveRaqueta(){
     }
 }
 
-let bloqueRowCount = 5;
-let bloqueColumnCount = 9;
-let bloquekWidth = 70;
-let bloqueHeight = 20;
-let bloquePadding = 20;
-let bloqueOffsetTop = 30;
-let bloqueOffsetLeft = 35;
+const LADRILLO = {
+    F: 5,   //-- Filas
+    C: 9,   //-- Columnas
+    w: 90,  //-- Anchura
+    h: 20,  //-- Altura
+    padding: 10,  //-- Espacio alrededor del ladrillo
+    visible: true //-- Estado del ladrillo: activo o no
+  }
+  
 
-//Creando ladrillos
-let bloques = [];
-//Creando matriz de ladrillos
-function generateBLoques()<{
-    for(let c = 0; c< bloqueColumnCount; c++){
-        bloques[c] = [];
-        for (let r = 0; r> bloqueRowCount; r++){
-            bloques[c][r] = {x:0, y:0, status: 1};
-        }
+//-- Creación de los ladrillos. La estructura se almacena 
+//-- en el objeto ladrillos, que inicialmente está vacío
+const ladrillos = [];
+
+//-- Recorrer todas las filas. La variable i toma valores de 0 hasta F-1 (número de filas)
+for (let i = 0; i < LADRILLO.F; i++) {
+  ladrillos[i] = [];  //-- Inicializar la fila. Las filas son a su vez Arrays que inicialmente están vacíos
+
+  //-- Recorrer las C columnas de la fila i. La variable j toma valores de 0 hasta C-1 (numero de columnas)
+  for (let j = 0; j < LADRILLO.C; j++) {
+
+    //-- Calcular valores para el ladrillo de la fila i y la columna j
+    //-- Algunos valores son constates. Otros depeden de i y j
+    ladrillos[i][j] = {
+      x: (LADRILLO.w + LADRILLO.padding) * j,
+      y: (LADRILLO.h + LADRILLO.padding) * i,
+      w: LADRILLO.w,
+      h: LADRILLO.h,
+      padding: LADRILLO.padding,
+      visible: LADRILLO.visible
+    };
+  }
+}
+//Dibujando ladrillos
+function drawBloques(){
+    //-- Dibujar ladrillos
+    for (let i = 0; i < LADRILLO.F; i++) {
+    for (let j = 0; j < LADRILLO.C; j++) {
+
+      //-- Si el ladrillo es visible se pinta
+      if (ladrillos[i][j].visible) {
+        ctx.beginPath();
+        ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+      }
     }
+  }
 }
 
+  function collisionDetection(){
+      for (let i = 0; i < LADRILLO.F; i++){
+        for (let j = 0; j < LADRILLO.C; j++){
+            //-- Si el ladrillo es visible se pinta
+            if (ladrillos[i][j].visible){
+                if( pelotax >= ladrillos[i][j].x &&
+                    pelotax <= ladrillos[i][j].x + LADRILLO.w &&
+                    pelotay >= ladrillos[i][j].y && 
+                    pelotay <=ladrillos[i][j].y + LADRILLO.h)
+                    {
+                        dy = -dy;
+                        ladrillos[i][j].visible = false;
+                    }
+                    
+            }
+        }
+      }
+  }
  draw();
