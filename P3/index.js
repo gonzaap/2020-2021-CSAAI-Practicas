@@ -46,6 +46,7 @@ function drawRaqueta() {
      moveRaqueta();
      drawBloques();
      collisionDetection();
+     drawScore();
      pelotax += dx;
      pelotay += dy;
 
@@ -66,7 +67,13 @@ function drawRaqueta() {
  
      requestAnimationFrame(draw);
  }
- 
+ let score = 0;
+  
+ function drawScore(){
+     ctx.font = '16px Arial';
+     ctx.fillStyle = '#FFF9FB';
+     ctx.fillText('Score: ' + score, 8,750);
+ }
  //Detectando teclas
  let rightPressed = false;
  let leftPressed = false;
@@ -168,10 +175,12 @@ function drawBloques(){
                     {
                         dy = -dy;
                         ladrillos[i][j].visible = false;
+                        score++
                     }
                     
             }
         }
       }
   }
+ 
  draw();
