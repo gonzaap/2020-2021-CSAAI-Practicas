@@ -13,8 +13,8 @@ let speed = 5;
 //Definiendo pelota
     var pelotax= canvas.width/2;
     var pelotay= canvas.height -300;
-    var dx= speed;
-    var dy= -speed;
+    var dx= 0;
+    var dy= 0;
     var radius= 7;
     
 function drawPelota() {
@@ -23,6 +23,14 @@ function drawPelota() {
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.closePath();
+}
+
+window.onkeydown = (e) => {
+    if (e.keyCode == 32){
+        dx = speed;
+        dy = -speed +1;
+
+    }
 }
 
 //Definiendo raqueta
@@ -78,6 +86,10 @@ let score = 0;
     }
     if(pelotay + radius > canvas.height){
         vidas--;
+        pelotax = canvas.width /2;
+        pelotay = canvas.height -50;
+        dx = 0;
+        dy = 0;
         reset();
     }
  }
@@ -85,8 +97,8 @@ let score = 0;
  function reset(){
     pelotax = canvas.width/2;
     pelotay= canvas.height -300;
-    dx= speed;
-    dy= -speed;
+    dx= 0;
+    dy= 0;
     anchoRaqueta = 100;
     altoRaqueta = 20; 
     raquetax = (canvas.width-anchoRaqueta)/2;
