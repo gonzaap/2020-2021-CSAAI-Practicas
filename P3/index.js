@@ -261,7 +261,7 @@ function drawBloques(){
     }
   }
  function win(){
-     if(score == 1){
+     if(score == 90){
         COLLISION_SOUND.muted = true;
         WALL_SOUND.muted = true; 
         WIN_SOUND.play();
