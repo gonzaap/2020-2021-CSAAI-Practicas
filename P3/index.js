@@ -51,6 +51,7 @@ let score = 0;
      drawScore();
      drawLives();
      wallCollision();
+     gameOver();
      pelotax += dx;
      pelotay += dy;
 
@@ -212,8 +213,11 @@ function drawBloques(){
         }
       }
   }
-  function GameOver(){
-
+  function gameOver(){
+    if (vidas == 0){
+        alert("GAME OVER");
+        document.location.reload();
+    }
   }
  
  draw();
