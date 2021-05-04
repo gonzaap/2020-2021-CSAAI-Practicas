@@ -2,6 +2,17 @@ console.log("Ejecutando JS...");
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const COLLISION_SOUND = new Audio();
+const PADDLE_SOUND = new Audio();
+const LOSING_LIFE = new Audio();
+const WALL_SOUND = new Audio();
+const GAMEOVER_SOUND = new Audio();
+const WIN_SOUND = new Audio();
+COLLISION_SOUND.src = 'collision_sound.mp3';
+PADDLE_SOUND.src = 'paddle_sound.mp3';
+LOSING_LIFE.src = 'losing_life.mp3';
+WALL_SOUND.src = 'wall_sound.mp3';
+GAMEOVER_SOUND.src = 'gameover_sound.mp3';
 document.addEventListener("keyup", keyUpHandler,false);
 document.addEventListener('keydown', keyDownHandler,false);
 
@@ -60,6 +71,7 @@ let score = 0;
      drawLives();
      wallCollision();
      gameOver();
+     win();
      pelotax += dx;
      pelotay += dy;
 
@@ -73,6 +85,7 @@ let score = 0;
             dx = speed * Math.sin(angle);
             dy = -speed * Math.cos(angle);
             console.log("bota rebota");
+            PADDLE_SOUND.play();
         }
  
      requestAnimationFrame(draw);
@@ -80,12 +93,16 @@ let score = 0;
  function wallCollision(){
     if(pelotax + radius > canvas.width || pelotax - radius < 0){
         dx = -dx;
+        WALL_SOUND.play();
     }
     if(pelotay + radius > canvas.height || pelotay - radius < 0){
        dy = -dy;
+       WALL_SOUND.play();
     }
+    
     if(pelotay + radius > canvas.height){
         vidas--;
+        LOSING_LIFE.play();
         pelotax = canvas.width /2;
         pelotay = canvas.height -50;
         dx = 0;
@@ -218,6 +235,7 @@ function drawBloques(){
                     {
                         dy = -dy;
                         ladrillos[i][j].visible = false;
+                        COLLISION_SOUND.play();
                         score++
                     }
                     
@@ -227,9 +245,15 @@ function drawBloques(){
   }
   function gameOver(){
     if (vidas == 0){
+        GAMEOVER_SOUND.play();
         alert("GAME OVER");
         document.location.reload();
     }
   }
- 
+ function win(){
+     if(score == 45){
+         alert('YOU WIN');
+         document.location.reload();
+     }
+ }
  draw();
