@@ -13,34 +13,35 @@ PADDLE_SOUND.src = 'paddle_sound.mp3';
 LOSING_LIFE.src = 'losing_life.mp3';
 WALL_SOUND.src = 'wall_sound.mp3';
 GAMEOVER_SOUND.src = 'gameover_sound.mp3';
+WIN_SOUND.src = 'win_sound.mp3';
 document.addEventListener("keyup", keyUpHandler,false);
 document.addEventListener('keydown', keyDownHandler,false);
 
 //-- Definir el tamaño del canvas
-canvas.width = 900;
+canvas.width = 1000;
 canvas.height = 800;
 
-let speed = 5;
+let speedx = 0;
+let speedy = 5;
+var speed = (Math.random()*10) +1;
 //Definiendo pelota
     var pelotax= canvas.width/2;
     var pelotay= canvas.height -300;
     var dx= 0;
     var dy= 0;
     var radius= 7;
-    
 function drawPelota() {
     ctx.beginPath();
     ctx.arc(pelotax, pelotay, radius, 0, Math.PI*2,true);
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = '#FFFFFF';
     ctx.fill();
     ctx.closePath();
 }
 
 window.onkeydown = (e) => {
     if (e.keyCode == 32){
-        dx = speed;
-        dy = -speed +1;
-
+        dx = speedx;
+        dy = speedy;
     }
 }
 
@@ -52,7 +53,7 @@ var raquetax = (canvas.width-anchoRaqueta)/2;
 function drawRaqueta() {
     ctx.beginPath();
     ctx.rect(raquetax,canvas.height -30, anchoRaqueta, altoRaqueta);
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = "#1102A5 ";
     ctx.fill();
     ctx.closePath();
     
@@ -61,6 +62,11 @@ let vidas = 3;
 let score = 0;
   
  function draw(){
+     document.getElementById('init').style.display = 'none';
+     document.getElementById("gameovergif").style.display = "none";
+     document.getElementById("wingif").style.display = "none";
+     document.getElementById('you_win').style.display = 'none';
+     document.getElementById('you_lose').style.display = 'none';
      ctx.clearRect(0,0,canvas.width,canvas.height);
      drawRaqueta();
      drawPelota();
@@ -124,13 +130,13 @@ let score = 0;
  function drawScore(){
      ctx.font = '16px Arial';
      ctx.fillStyle = '#FFF9FB';
-     ctx.fillText('Puntos: ' + score, 50,450);
+     ctx.fillText('Score: ' + score, 20, 20);
  }
 
  function drawLives(){
     ctx.font = '16px Arial';
     ctx.fillStyle = '#FFF9FB';
-    ctx.fillText('Vidas: ' + vidas, 800,450);
+    ctx.fillText('Lives: ' + vidas, 920,20);
  }
 
 
@@ -173,7 +179,7 @@ function moveRaqueta(){
 }
 
 const LADRILLO = {
-    F: 5,   //-- Filas
+    F: 10,   //-- Filas
     C: 9,   //-- Columnas
     w: 90,  //-- Anchura
     h: 20,  //-- Altura
@@ -208,8 +214,8 @@ for (let i = 0; i < LADRILLO.F; i++) {
 //Dibujando ladrillos
 function drawBloques(){
     //-- Dibujar ladrillos
-    for (let i = 0; i < LADRILLO.F; i++) {
-    for (let j = 0; j < LADRILLO.C; j++) {
+    for (let i = 1; i < LADRILLO.F; i++) {
+    for (let j = 1; j < LADRILLO.C; j++) {
 
       //-- Si el ladrillo es visible se pinta
       if (ladrillos[i][j].visible) {
@@ -224,8 +230,8 @@ function drawBloques(){
 }
 
   function collisionDetection(){
-      for (let i = 0; i < LADRILLO.F; i++){
-        for (let j = 0; j < LADRILLO.C; j++){
+      for (let i = 1; i < LADRILLO.F; i++){
+        for (let j = 1; j < LADRILLO.C; j++){
             //-- Si el ladrillo es visible se pinta
             if (ladrillos[i][j].visible){
                 if( pelotax >= ladrillos[i][j].x &&
@@ -245,15 +251,25 @@ function drawBloques(){
   }
   function gameOver(){
     if (vidas == 0){
+        LOSING_LIFE.muted = true;
         GAMEOVER_SOUND.play();
-        alert("GAME OVER");
-        document.location.reload();
+        document.getElementById('gameovergif').style.display = '';
+        document.getElementById('canvas').style.display = 'none';
+        document.getElementById('init').style.display = '';
+        document.getElementById('you_lose').style.display = '';
+        stopAudio();
     }
   }
  function win(){
-     if(score == 45){
-         alert('YOU WIN');
-         document.location.reload();
+     if(score == 1){
+        COLLISION_SOUND.muted = true;
+        WALL_SOUND.muted = true; 
+        WIN_SOUND.play();
+        document.getElementById('wingif').style.display = '';
+        document.getElementById('canvas').style.display = 'none';
+        document.getElementById('init').style.display = '';
+        document.getElementById('you_win').style.display = '';
+        stopAudio();
      }
  }
  draw();

@@ -1,27 +1,72 @@
-canvas {
-    background-color: #7B0620;
+@font-face
+{
+    font-family: 'Deathnote';
+    src: url(DEATHNOTEFont.ttf)
+}
+canvas{
+    background-color: transparent;
     border-style: solid;
     border-width: 1px;
     border-color: white;
     border-radius: 5px;
+    margin-left: 11cm;
+    margin-top: 1cm;
   }
 
-  body{
-    background:  #470212  ;
-  }
+body{
+  background-image: url('fondo.jpg');
+}
 
-  .high-score{
-    position : absolute;
-    top: 1.5 rem;
-    width: 80%;
-    left: 10%;
-    text-align: center;
-  }
+ul{
+  color:whitesmoke;
+}
 
-  .reset{
-    cursor: pointer;
-    position: absolute;
-    top:95%;
-    left:10%;
-    text-align: center;
-  }
+.high-score{
+  position : absolute;
+  top: 1.5 rem;
+  width: 80%;
+  left: 10%;
+  text-align: center;
+}
+
+.reset{
+  cursor: pointer;
+  position: absolute;
+  top:95%;
+  left:10%;
+  text-align: center;
+}
+
+#gameovergif{
+  width: 900px;
+  height: 500px;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+#wingif{
+  width: 900px;
+  height: 500px;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+#init{
+  width: 3cm;
+  height: 2cm;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-family: 'Courier New', arial;
+  margin-top: 1cm;
+  margin-left: 23cm;
+}
+
+
+p{
+  color: antiquewhite;
+  text-align: center;
+  font-family: 'Deathnote';
+  font-size: 100px;
+  margin-top: 20px;
+}
