@@ -38,15 +38,15 @@ ul{
 }
 
 #gameovergif{
-  width: 900px;
-  height: 500px;
+  width: 800px;
+  height: 400px;
   margin-top: 5px;
   margin-left: 500px;
 }
 
 #wingif{
-  width: 900px;
-  height: 500px;
+  width: 800px;
+  height: 400px;
   margin-top: 5px;
   margin-left: 500px;
 }
@@ -58,7 +58,7 @@ ul{
   color: black;
   font-size: 20px;
   font-family: 'Courier New', arial;
-  margin-top: 1cm;
+  margin-top: 6cm;
   margin-left: 23cm;
 }
 
@@ -67,6 +67,6 @@ p{
   color: antiquewhite;
   text-align: center;
   font-family: 'Deathnote';
-  font-size: 100px;
+  font-size: 70px;
   margin-top: 5px;
 }
