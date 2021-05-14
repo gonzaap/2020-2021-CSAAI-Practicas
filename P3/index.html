@@ -10,16 +10,17 @@
     <title>Breakout</title>
 </head>
 <body>
+    <canvas id="canvas"></canvas>
     <ul>
         <li> Team L - blue</li>
         <li> Team Kira - red</li>
         <li>Press Spacebar to start</li>
     </ul>
-    <canvas id="canvas"></canvas>
+    <p id= you_lose>GAME OVER</p>
+    <p id= you_win>YOU WIN</p>
     <img src ='gameover.gif' id='gameovergif'>
     <img src ='win.gif' id='wingif'>
-    <p id= you_win>YOU WIN</p>
-    <p id= you_lose>GAME OVER</p>
+
     <button id='init' value = 'init' onclick = 'location.reload()'>PLAY AGAIN</button>
 </body>
 </html>
