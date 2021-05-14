@@ -29,6 +29,16 @@ img.onload = function () {
   console.log("Anchura (en pixeles): " + canvas.width)
   console.log("Altura (en pixeles): " + canvas.height)
   console.log("Pixeles totales: " + npixels)
+
+  let i = 200 + 50*canvas.width;
+
+  //-- Pixel rojo: canal rojo a tope. Resto de colores a 0
+  //-- La transparencia no se modifica
+  data[i*4] = 255;    //-- Canal Rojo
+  data[i*4 + 1] = 0;  //-- Canal Verde
+  data[i*4 + 2] = 0;  //-- Canal azul
+  
+  ctx.putImageData(imgData, 0, 0);
 };
 
 console.log("Fin...");
