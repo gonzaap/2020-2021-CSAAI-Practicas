@@ -1,3 +1,28 @@
 body {
-    background-color: grey;
+    background-image: url('wallpaper.jpg');
+    margin-left: 39%;
   }
+
+#imagesrc {
+    display:none;
+  }
+
+#fieldset {
+    width: 400px;
+    margin-top: 20px;
+}
+
+#ª {
+    float:left;
+}
+button{
+    margin-top: 40px;
+}
+
+legend{
+    color: white;
+}
+
+p{
+    color: white;
+}

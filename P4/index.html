@@ -6,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
-    <title>Ejemplo 1</title>
+    <title>Manipulación de Imagen</title>
 </head>
 <body>
     <p>Imagen original</p>
     <img src="foto1.jpg" id="foto1">
+    <br>
+    <button id="grises">GRISES</button>
+    <button id="colores">COLORES</button>
+    <button id="negativo">NEGATIVO</button>
+    <br>
+        <fieldset id="fieldset">
+            <legend>Elige tu elemento cambiando el color</legend>
+            <div id="deslizadores">
+            <input type="range" id="r" min="0" max="255" value="255">Fuego<br>
+            <p id="rangered_value">00</p>
+            <input type="range" id="g" min="0" max="255" value="255">Planta<br>
+            <p id="rangegreen_value">00</p>
+            <input type="range" id="b" min="0" max="255" value="255">Agua<br>
+            <p id="rangeblue_value">00</p>
+            </div>
+        </fieldset>
+
+    <br>
     <p>Imagen manipulada</p>
     <canvas id="canvas"></canvas>
     <br>
-    <input type="range" id="r" min="0" max="1" value="1" step="0.1">R<br>
-    <input type="range" id="g" min="0" max="1" value="1" step="0.1">G<br>
-    <input type="range" id="b" min="0" max="1" value="1" step="0.1">B<br>
 </body>
 </html>
