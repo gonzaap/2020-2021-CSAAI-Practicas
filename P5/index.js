@@ -6,15 +6,16 @@ const btn_video1 = document.getElementById("btn_video1");
 const btn_video2 = document.getElementById("btn_video2");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
+const btn_src_off = document.getElementById("btn_src_off");
 
 
 //-- Establecer las dimensiones de los vídeos
-directo.width=420;
-directo.height=200;
-video1.width=200;  
-video1.height=100;
-video2.width=200;  
-video2.height=100;
+directo.width=800;
+directo.height=500;
+video1.width=400;  
+video1.height=200;
+video2.width=400;  
+video2.height=200;
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "test.gif";
@@ -40,12 +41,21 @@ btn_src_on.onclick = () => {
   video2.play();
 
   //-- Y en silencio...
-  video1.muted;
-  video2.muted;
+  video1.muted = true;
+  video2.muted = true;
 
   //-- En la emisión en directo ponemos la imagen de prueba
   directo.poster = TEST_IMAGE_URL;
 };
+
+btn_src_off.onclick = () => {
+    directo.poster = TEST_IMAGE_URL;
+    directo.src = null;
+    video1.poster = TEST_IMAGE_URL;
+    video1.src = null;
+    video2.poster = TEST_IMAGE_URL;
+    video2.src = null;
+}
 
 //-- Botón de Test
 btn_test.onclick = () => {

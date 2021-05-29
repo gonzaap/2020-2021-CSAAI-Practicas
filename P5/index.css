@@ -1,0 +1,64 @@
+body {
+    background-image: url('wallpaper.webp');
+}
+
+#directo {
+    margin-top: 1%;
+    margin-left: 26%;
+    border: #E80020 5px solid;
+    border-radius: 5px;
+}
+
+#video1 {
+    margin-top: 5%;
+    margin-left: 15%;
+    border: #E80020 5px solid;
+    border-radius: 5px;
+}
+
+#video2 {
+    margin-top: 1%;
+    margin-left: 20%;
+    border: #E80020 5px solid;
+    border-radius: 5px;
+}
+
+#btn_src_on {
+    background-color: aqua;
+    margin-left: 42%;
+    margin-top: 2%;
+    border: #000000 5px solid;
+    border-radius: 5px;
+}
+
+#btn_src_off {
+    background-color: aqua;
+    margin-left: 2%;
+    margin-top: 2%;
+    border: #000000 5px solid;
+    border-radius: 5px;
+}
+
+#btn_video1 {
+    background-color: aqua;
+    margin-left: 25%;
+    margin-top: 2%;
+    border: #000000 5px solid;
+    border-radius: 5px;
+}
+
+#btn_test {
+    background-color: aqua;
+    margin-left: 17%;
+    margin-top: 1%;
+    border: #000000 5px solid;
+    border-radius: 5px;
+}
+
+#btn_video2 {
+    background-color: aqua;
+    margin-left: 20%;
+    margin-top: 1%;
+    border: #000000 5px solid;
+    border-radius: 5px;
+}
